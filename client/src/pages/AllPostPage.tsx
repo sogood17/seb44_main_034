@@ -3,7 +3,6 @@ import { COLOR_1, FONT_SIZE_1 } from '../common/common';
 import {data as dataAll} from '../mockData/cafePost.json'
 import PostThumbnail from '../common/posting/PostThumbnail';
 import { CafePostList } from '../types/type';
-import PlusBtn from "../common/posting/plusBtn";
 
 const ALlPostPage = () => {
   const data= dataAll.post;
