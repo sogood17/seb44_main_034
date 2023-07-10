@@ -1,6 +1,5 @@
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
 import { RecoilRoot } from 'recoil';
 import { styled } from 'styled-components';
 import Header from './components/header/Header';
