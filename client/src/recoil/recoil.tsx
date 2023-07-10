@@ -1,4 +1,4 @@
-import { atom, useRecoilState } from 'recoil';
+import { atom } from 'recoil';
 
 export type CafeType = {
   id: string;
