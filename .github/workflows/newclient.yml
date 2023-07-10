@@ -2,7 +2,7 @@ name: newclient
 on:
   push:
     branches:
-      - fe-dev
+      - sogood17-patch-1
 jobs:
   build:
     runs-on: ubuntu-20.04
