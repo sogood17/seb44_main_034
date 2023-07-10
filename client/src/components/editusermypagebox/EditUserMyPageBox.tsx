@@ -144,13 +144,12 @@ const EditUserMyPageBox = () => {
   const [password, setPassword] = useState<string>('');
   const [passwordConfirm, setPasswordConfirm] = useState<string>('');
 
-  const [idMessage, setIdMessage] = useState<string>('');
   const [displayNameMessage, setDisplayNameMessage] = useState<string>('');
   const [passwordMessage, setPasswordMessage] = useState<string>('');
   const [passwordConfirmMessage, setPasswordConfirmMessage] =
     useState<string>('');
 
-  const [isId, setIsId] = useState<boolean>(false);
+  const [isId] = useState<boolean>(false);
   const [isname, setIsName] = useState<boolean>(false);
   const [isPassword, setIsPassword] = useState<boolean>(false);
   const [isPasswordConfirm, setIsPasswordConfirm] = useState<boolean>(false);
