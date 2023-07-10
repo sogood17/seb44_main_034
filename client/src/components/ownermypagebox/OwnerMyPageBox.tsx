@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-import profileimg from '../../assets/profileimg.svg';
 import coffeeshop from '../../assets/coffeeshop.svg';
-import { useState } from 'react';
 import { COLOR_1 } from '../../common/common';
 import { FONT_SIZE_1 } from '../../common/common';
 
