@@ -29,10 +29,7 @@ function CafeMenuForm({ type }: { type: string }) {
   });
   const onSubmit = (data: FormValues) => {
     console.log(data);
-    // setMenuState(menuState);
   };
-
-  // const [menuState, setMenuState] = useRecoilState(CafeState);
 
   return (
     <div>

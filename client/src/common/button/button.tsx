@@ -12,13 +12,13 @@ export type ButtonType = {
   hoverable?: boolean;
   backgroundcolor?: string;
 };
-export const ConfirmBtn = styled.div`
+export const ConfirmBtn = styled.button`
   width: 4vw;
   min-width: 100px;
-  height: 1vh;
+  height: 4vh;
   padding: 1%;
   margin: 2%;
-  /* border: 2px solid ${COLOR_1.green}; */
+  border: none;
   border-radius: 20px;
   font-size: ${FONT_SIZE_2.normal_3};
   color: ${COLOR_1.dark_brown};
