@@ -38,3 +38,25 @@ export const ConfirmBtn = styled.button`
     cursor: pointer;
   }
 `;
+
+// export const Button = {
+//   Primary: styled.button<ButtonType>`
+//     width: ${(props) => props.width || '16px'};
+//     height: ${(props) => props.height || '16px'};
+//     font-size: ${(props) => props.fontSize || '16px'};
+//     padding: ${(props) => props.padding || '10px 20px'};
+//     border-radius: ${(props) => props.borderRadius || '4px'};
+//     color: ${(props) => props.color || 'black'};
+//     background-color: transparent;
+//     border: 2px solid ${(props) => props.color || 'black'};
+//     cursor: pointer;
+//     ${(props) =>
+//       props.hoverable &&
+//       css`
+//         &:hover {
+//           background-color: ${(props) => props.color || 'black'};
+//           color: white;
+//         }
+//       `}
+//   `,
+// };
