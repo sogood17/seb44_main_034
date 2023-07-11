@@ -3,8 +3,6 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
-import styled from 'styled-components';
 import coffeeshop from '../../assets/coffeeshop.svg';
 
 import { COLOR_1 } from '../../common/common';
