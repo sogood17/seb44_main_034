@@ -1,5 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
+
 import { COLOR_1 } from '../../common/common';
 import { FONT_SIZE_1 } from '../../common/common';
 import CafeFollowerModal from '../cafefollowermodal/CafeFollowerModal';
