@@ -1,10 +1,14 @@
 import { useFieldArray, useFormContext } from 'react-hook-form';
+import axios from 'axios';
 import { styled } from 'styled-components';
 import { COLOR_1, FONT_SIZE_1 } from '../../common/common';
 import { FONT_SIZE_2 } from '../../common/common';
 import { FaSquareMinus, FaSquarePlus } from 'react-icons/fa6';
+import { MdDriveFileRenameOutline } from 'react-icons/md';
+
 export type FormValues = {
   menu: {
+    menuId?: number;
     name: string;
     price: number;
     menuType: string;
@@ -13,26 +17,40 @@ export type FormValues = {
 
 /* useFormContext -> 자식 컴포넌트에서 부모컴포넌트 값을 사용할 수 있음 */
 /* type = signature , name = '시그니처' */
-function CafeMenuForm({ type, name }: { type: string; name: string }) {
+function EditMenuForm({ type, name }: { type: string; name: string }) {
   const {
     control,
     register,
     // formState: { errors },
   } = useFormContext();
-  /* register는 먼가?
-  register: (name: string, RegisterOptions?) => ({ onChange, onBlur, name, ref })
-  입력을 등록하거나 요소를 선택하고 유효성 검사 규칙을 React Hook Form에 적용할 수 있음
-  name 은 등록되는 입력의 이름 ! -> 식별할 수 있는것임 
-  현재 내가 사용하고 있는건 아래와같은 방식 
-  register("name.firstName.0")	{name: { firstName: [ 'value' ] }}
-  필드 배열을 생성하려면 입력 이름 뒤에 점과 숫자가 와야하기때문. 예를 들어:test.0.data
- 
-*/
 
   const { fields, append, remove } = useFieldArray({
     name: type,
     control,
   });
+  const onUpdateMenu = async (updatedMenu: any, menuId: number) => {
+    const parameterMenuId = updatedMenu.menuId;
+    try {
+      const response = await axios.patch(
+        `http://localhost:3001/menus/${parameterMenuId}`,
+        updatedMenu
+      );
+      console.log(menuId);
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const onDeleteMenu = async (menuId: number) => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:3001/menus/${menuId}`
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div>
@@ -63,9 +81,16 @@ function CafeMenuForm({ type, name }: { type: string; name: string }) {
                   })}
                   // className={errors?.menu?.[index]?.price ? 'error' : ''}
                 />
+                <S.EditBtn
+                  type='button'
+                  onClick={() => onUpdateMenu(fields[index], index)}
+                />
                 <S.RemoveBtn
                   type='button'
-                  onClick={() => remove(index)}
+                  onClick={() => {
+                    remove(index);
+                    onDeleteMenu(index);
+                  }}
                 ></S.RemoveBtn>
               </S.FormDiv>
             </div>
@@ -157,11 +182,21 @@ const S = {
       height: 15px;
     }
   `,
-
+  EditBtn: styled(MdDriveFileRenameOutline)`
+    width: 20px;
+    height: 20px;
+    &:hover {
+      cursor: pointer;
+    }
+    @media screen and (max-width: 767px) {
+      width: 15px;
+      height: 15px;
+    }
+  `,
   BtnDiv: styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
   `,
 };
-export default CafeMenuForm;
+export default EditMenuForm;

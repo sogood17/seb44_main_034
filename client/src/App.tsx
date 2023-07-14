@@ -1,4 +1,4 @@
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Route, Routes } from 'react-router-dom';
 
 import './App.css';
@@ -6,7 +6,8 @@ import './App.css';
 import { RecoilRoot } from 'recoil';
 import { styled } from 'styled-components';
 import Header from './components/header/Header';
-import Footer from './components/footer/Footer';
+import Nav from './components/nav/Nav';
+// import Footer from './components/footer/Footer';
 import Main from './pages/Main';
 import SignupSelect from './pages/SignupSelect';
 import UserSignup from './pages/UserSignup';
@@ -15,7 +16,7 @@ import OwnerMyPage from './pages/OwnerMyPage';
 import UserMyPage from './pages/UserMyPage';
 import OtherUserMyPage from './pages/OtherUserMyPage';
 import EditInformationCafe from './pages/EditInformationCafe';
-import EditMenuCafe from './pages/EditMenuCafe';
+import EditMenuCafePage from './pages/EditMenuCafePage';
 import EditOwnerMyPage from './pages/EditOwnerMyPage';
 import EditPostPage from './pages/EditPostPage';
 import EditUserMyPage from './pages/EditUserMyPage';
@@ -30,11 +31,10 @@ const queryClient = new QueryClient();
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  min-height: 700px;
-  width: 100vw;
-  @media screen and (max-width: 500px) {
-    min-height: 400px;
-  }
+  margin: 0 auto;
+  width: 100%;
+  min-width: 320px;
+  max-width: 768px;
 `;
 
 function App() {
@@ -49,11 +49,11 @@ function App() {
             <Route path='/signupselect' element={<SignupSelect />} />
             <Route path='/usersignup' element={<UserSignup />} />
             <Route path='/ownersignup' element={<OwnerSignup />} />
-            <Route path='/usermypage/' element={<UserMyPage />} />
-            <Route path='/ownermypage/' element={<OwnerMyPage />} />
-            <Route path='/otherusermypage/:id' element={<OtherUserMyPage />} />
-            <Route path='/usermypage/edit/:id' element={<EditUserMyPage />} />
-            <Route path='/ownermypage/edit/:id' element={<EditOwnerMyPage />} />
+            <Route path='/usermy/' element={<UserMyPage />} />
+            <Route path='/ownermy/' element={<OwnerMyPage />} />
+            <Route path='/otherusermy/:id' element={<OtherUserMyPage />} />
+            <Route path='/usermy/edit/:id' element={<EditUserMyPage />} />
+            <Route path='/ownermy/edit/:id' element={<EditOwnerMyPage />} />
             <Route path='/cafepage/:id' element={<CafePage />} />
             <Route
               path='/cafepage/create/information'
@@ -64,14 +64,17 @@ function App() {
               path='/cafepage/edit/information/:id'
               element={<EditInformationCafe />}
             />
-            <Route path='/cafepage/edit/menu/:id' element={<EditMenuCafe />} />
+            <Route
+              path='/cafepage/edit/menu/:id'
+              element={<EditMenuCafePage />}
+            />
             <Route path='/postpage/:id' element={<PostPage />} />
             <Route path='/postpage/create' element={<CreatePostPage />} />
             <Route path='/postpage/edit/:id' element={<EditPostPage />} />
             <Route path='/allpostpage' element={<AllPostPage />} />
           </Routes>
         </Container>
-        <Footer />
+        <Nav />
       </RecoilRoot>
     </QueryClientProvider>
   );
