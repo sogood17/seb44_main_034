@@ -63,7 +63,7 @@ const PostPage = () => {
         <S.ContentWrap>{postData.content}</S.ContentWrap>
       </div>
     </S.Container>
-  );
+  }
 };
 
 const S = {
