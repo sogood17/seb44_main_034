@@ -132,6 +132,7 @@ const OwnerSignupBox = () => {
       .catch((error) => {
         // Handle error.
         setPostError(error.response.data.message);
+        console.log(error);
       });
   };
   return (
