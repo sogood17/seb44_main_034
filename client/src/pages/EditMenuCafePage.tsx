@@ -48,6 +48,7 @@ const EditMenuCafe = () => {
             },
           } // edit 추가해야함
         );
+        console.log(response);
         // const fetchedData = response.data;
         // fetchedData.forEach((item: any, index: number) => {
         //   const menuId = index; // menuId 할당
