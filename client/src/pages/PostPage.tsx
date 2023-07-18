@@ -10,11 +10,17 @@ import MoodTagPost from '../common/tags/MoodTagPost';
 import StarRating from '../components/starRating';
 
 const PostPage = () => {
-  const postId = useParams();
+  const params = useParams();
+  const postId = params.postId;
 
   const { data, isLoading, isError } = useQuery(['getPostDetail', postId], () =>
-    getPostDetailAPI.getPostDetail(postId.toString())
+    getPostDetailAPI.getPostDetail(postId)
   );
+
+  //   const { data, isLoading, isError } = useQuery(
+  //   ['getPostDetail'],
+  //   () => getPostDetailAPI.getPostDetail()
+  // );
 
   if (isLoading) {
     return <>Loading...</>;
@@ -24,10 +30,11 @@ const PostPage = () => {
     return <>Error</>;
   }
 
-  const postData = data.post[0];
-  const tagData = data.tag;
-
-  return (
+  if (data) {
+    console.log(data);
+    
+  const postData = data.payload.data;
+  const tagData = data.payload.data.tags;
     <S.Container>
       <div>
         <PostItemHead postData={postData} />
