@@ -32,9 +32,9 @@ const PostPage = () => {
 
   if (data) {
     console.log(data);
-    
   const postData = data.payload.data;
   const tagData = data.payload.data.tags;
+  return (
     <S.Container>
       <div>
         <PostItemHead postData={postData} />
@@ -63,7 +63,7 @@ const PostPage = () => {
         <S.ContentWrap>{postData.content}</S.ContentWrap>
       </div>
     </S.Container>
-  }
+  )}
 };
 
 const S = {
