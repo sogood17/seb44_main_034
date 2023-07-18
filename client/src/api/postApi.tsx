@@ -28,6 +28,7 @@ export const getPostDetailAPI = {
     });
     // const res = await axios.get(`http://localhost:3001/post`);
     const { data } = res.data;
+    console.log(data);
     return data;
   },
 };
