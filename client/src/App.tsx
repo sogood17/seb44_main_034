@@ -17,7 +17,7 @@ const S = {
   width: 100%;
   min-width: 320px;
   max-width: 768px;
-`;
+`
 }
 
 function App() {
