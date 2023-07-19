@@ -32,7 +32,7 @@ const PostItemHead = ({ postData }: PostItemProps) => {
         return axios
           .delete(`/${postId}`, {
             headers: {
-              'withCredentials':'true',
+              withCredentials:true,
               Authorization: localStorage.getItem('access_token'),
             },
             data: { postId: postId },

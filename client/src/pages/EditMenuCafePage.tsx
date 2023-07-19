@@ -44,7 +44,7 @@ const EditMenuCafe = () => {
             headers: {
               'Content-Type': 'application/json',
               // 'Content-Type': 'application/json',
-              'withCredentials':'true',
+              withCredentials:true,
               Authorization: localStorage.getItem('access_token'),
             },
           } // edit 추가해야함

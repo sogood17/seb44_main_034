@@ -387,7 +387,7 @@ const UserMyPageBox = () => {
         headers: {
           'ngrok-skip-browser-warning': 'true',
           'Access-Control-Allow-Origin': '*',
-          'withCredentials':'true',
+          withCredentials:true,
           Authorization: localStorage.getItem('access_token'),
         },
       })

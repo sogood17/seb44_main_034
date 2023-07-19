@@ -145,7 +145,7 @@ const EditPostPage = () => {
   const editPost = (post: PostData) =>
     axios.patch(`${baseURL}/posts/${postId}`, post, {
       headers: { Authorization: localStorage.getItem('access_token'),
-      'withCredentials':'true' },
+      withCredentials:true },
     });
 
   const editPostMutation = useMutation({

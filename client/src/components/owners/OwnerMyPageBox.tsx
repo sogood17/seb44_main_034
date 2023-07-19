@@ -217,7 +217,7 @@ const UserMyPageBox = () => {
       .get(`${baseURL}/owners/my-page`, {
         headers: {
           'ngrok-skip-browser-warning': 'true',
-          'withCredentials':'true',
+          withCredentials:true,
           Authorization: localStorage.getItem('access_token'),
         },
       })

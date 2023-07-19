@@ -75,6 +75,7 @@ const AddCafeMenuPage = () => {
           'Content-Type': 'application/json',
           'ngrok-skip-browser-warning': 'true',
           // 'Content-Type': 'application/json',
+            withCredentials: true,
           Authorization: localStorage.getItem('access_token'),
         },
       });
