@@ -12,6 +12,7 @@ export const createBaseUrl = axios.create({
 export const getAllPosts = async (pageParam:number) => {
   const res = await createBaseUrl.get(`/posts?page=${pageParam}&size=8`, {
     headers: {
+        withCredentials:true,
       // 'ngrok-skip-browser-warning': 'true'
     }
   });
@@ -25,6 +26,9 @@ export const getPostDetailAPI = {
     //   headers: {
     //     'ngrok-skip-browser-warning': 'true'
     //   }
+    headers: {
+      withCredentials:true,
+    },
     });
     // const res = await axios.get(`http://localhost:3001/post`);
     const { data } = res.data;
