@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import { RecoilRoot } from 'recoil';
 import { styled } from 'styled-components';
@@ -41,6 +41,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <RecoilRoot>
+        <BrowserRouter>
         <Header />
         <Container>
           <Routes>
@@ -75,6 +76,7 @@ function App() {
           </Routes>
         </Container>
         <Nav />
+        </BrowserRouter>
       </RecoilRoot>
     </QueryClientProvider>
   );
